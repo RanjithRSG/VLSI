@@ -31,8 +31,10 @@ initial begin
     a = 4'b0001; b = 4'b0110;
     #10;
     
-    $display("SUM = %b, COUT = %b", sum, cout);
     $finish;
 end
+  
+  always@*
+    $monitor("time=%0t \tINPUT VALUES: \t a=%b b=%b cin=%b\t output value sum = %b \t Cout=%b",$time,a,b,cin,sum,cout,);
       
 endmodule
