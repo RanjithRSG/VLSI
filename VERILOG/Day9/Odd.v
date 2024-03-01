@@ -6,9 +6,9 @@ module odd(
   always @(*) begin
   
     if(a%2==1)
-      $display(a,"It is a odd number");
+      $display(a," is a odd number");
   else
-    $display(a,"It is not odd number");
+    $display(a," is not odd number");
   
   end
 
