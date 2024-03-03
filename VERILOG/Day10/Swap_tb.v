@@ -2,9 +2,9 @@
 // or browse Examples
 module swap_tb;
 
-  reg a, b;
+  reg [3:0] a, b;
 
-  wire swapped_a, swapped_b;  
+  wire [3:0] swapped_a, swapped_b;  
  
   swap uut(a, b, swapped_a, swapped_b);
   
