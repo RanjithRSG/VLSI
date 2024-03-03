@@ -2,8 +2,8 @@
 // or browse Examples
 module prime_checker_tb;
 
-reg [31:0] N;
-wire prime;
+  reg [32:0] N;
+  wire prime;
 
 prime_checker prime_check(
     .N(N),
@@ -14,7 +14,7 @@ initial begin
     $display("Testing prime_checker module");
     N = 5;
     #10;
-    N = 10;
+    N = 15;
     #10;
     N = 17;
     #10;
