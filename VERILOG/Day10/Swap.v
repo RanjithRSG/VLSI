@@ -1,7 +1,7 @@
 // Code your design here
 module swap(
-  input wire a, b,
-  output reg swapped_a, swapped_b
+  input [3:0] a, b,
+  output reg [3:0] swapped_a, swapped_b
 );
 
   always @(*) begin
