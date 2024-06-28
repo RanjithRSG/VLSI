@@ -7,6 +7,8 @@ module top;
   initial begin
     $display("Given array = ", array);
     $display("***********************");
+
+    $display(array.sum);
     
     Y = array.min();
     $display("minimum value in array = ", Y);
