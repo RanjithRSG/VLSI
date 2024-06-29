@@ -19,7 +19,7 @@ module tb;
   
   initial begin
     
-    h1 = new();// if this is not given object will be null
+    // h1 = new(); object will be null without this line
     
     $display("Let's declare handle");
     $display("Check wheather the object is created or not");
