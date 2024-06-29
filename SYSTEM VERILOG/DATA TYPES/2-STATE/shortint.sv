@@ -1,6 +1,6 @@
 // Code your testbench here
 // or browse Examples
-module shrtint_top;
+module shortint_top;
   
   shortint data_u;
   
