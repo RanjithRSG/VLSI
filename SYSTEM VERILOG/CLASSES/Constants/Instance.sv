@@ -1,6 +1,7 @@
 // Code your testbench here
 // or browse Examples
 class data;
+  
   const int a;
   string b;
   
