@@ -1,6 +1,7 @@
 // Code your testbench here
 // or browse Examples
 class copy;
+  
   string name;
   int id;
   
