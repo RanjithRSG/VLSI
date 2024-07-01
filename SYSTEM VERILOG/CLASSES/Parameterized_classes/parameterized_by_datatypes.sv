@@ -1,6 +1,7 @@
 // Code your testbench here
 // or browse Examples
 class data #(parameter a,type team=string);
+  
   bit [a-1:0] d;
   team c;
   
