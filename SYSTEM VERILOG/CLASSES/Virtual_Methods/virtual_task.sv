@@ -1,38 +1,42 @@
-// Code your testbench here
-// or browse Examples
-class copy;
-  string name;
-  int id;
-  
-  function new();
-    name = "vignesh";
-    id = 35;
-  endfunction
-  
-  function void display();
-        $display("Name = %s  Id = %0d",name, id);
-  endfunction
-  
-endclass
+class packet;
+  string a;
+  int b;
 
-module top;
-  
-  copy c1;
-  copy c2;
-  
-  initial 
-    begin
-      c1 = new();
-      $display("before name changing");
-      c1.display();
-      c2 = c1;
-      $display("before id changing");
-      c2.display();
-      c2.name = "karthi";
-      c2.id = 05;
-      $display("after name changing");
-      c1.display();
-      $display("after id changing");
-      c1.display();
-    end
-endmodule
+    virtual task  display();
+     a="Team";
+     b=4;
+     $display("a=%0s",a);
+     $display("b=%0d",b);
+    endtask 
+
+ endclass//class 1
+
+//-----class 2-------
+class pack extends packet;
+   string c;
+   int d;
+
+      task display();
+       c="BJT";
+       d=8;
+       $display("c=%0s",c);
+       $display("d=%0d",d);
+      endtask
+
+endclass//class 2
+
+ packet p1;
+ pack p2;
+
+module virtual_task;
+
+   initial begin:BEGIN_I
+
+      p2=new();
+      p1=p2;
+      $display("contents of pp0");
+      p1.display();
+
+   end:BEGIN_I
+
+ endmodule:virtual_task
