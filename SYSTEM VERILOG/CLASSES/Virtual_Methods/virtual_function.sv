@@ -1,52 +1,62 @@
-// Code your testbench here
-// or browse Examples
-class macklin;
-  string place;
-  int id;
-  int team;
-  
-  function new();
-    place = "erode";
-    id = 14;
-  endfunction
-  
-  function void disp();
-    $display("PLace = %0s  Id = %od", place, id);
-  endfunction
-  
-endclass
+    class packet;
+      string a;
+      int b;
 
-class mirthula extends macklin;
-  string place;
-  string Team;
-  int id;
-  
-  function new();
-    place = "kerala";
-    Team = "TEAM 2";    
-    id = 22;
-  endfunction
-  
-  function void disp();
-    $display("PLACE = %0s Team = %0s, Id = %0d", place, Team, id);
-  endfunction
-  
-endclass
+       function new();
+        a="Team";
+        b=4;
+       endfunction:new
 
-module top;
-   
-  mirthula m1;
+      virtual function void display();
+             $display("a=%0d",a);
+             $display("b=%0d",b);
+      endfunction:display
+
+     endclass:packet
+
+         class pack extends packet;
+              string c;
+               int d;
+
+       function new();
+         c="BJT";
+         d=8;
+      endfunction:new
+
+      function void display();
+             // super.display();
+              $display("c = %0d",c);
+              $display("d = %0d",d);
+       endfunction:display
+
+     endclass:pack
+
+      class pack1 extends packet;
+            string e;
+
+            function new();
+              e="Manipal";
+            endfunction:new
   
-  initial
-    begin
-      m1 = new();
-      $display("Before Changing");
-      m1.disp();
-      m1.Team = "TEAM 4";
-      m1.id = 55;
-      m1.place = "kochin";
-      $display("After changing");
-      m1.disp();
-    end
-  
-endmodule
+          function void display();
+               $display("e = %0d",e);
+          endfunction:display
+
+          endclass:pack1
+
+         packet pp0,pp1;
+          pack p2;
+          pack1 p3;
+
+          module virt_fun;
+
+             initial begin:BEGIN_I
+                p2=new();
+                p3=new();
+                pp0=p2;
+                pp1=new p3;
+                pp0.display();
+                pp1.display();
+                end:BEGIN_I
+
+             endmodule:virt_fun
