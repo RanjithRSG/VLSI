@@ -1,18 +1,29 @@
-class scoreboard;
-  transaction pkt;
-  mailbox mail;
+`include "agent.sv"
+`include "scoreboard.sv"
 
-  function new(mailbox mail);
+class environment;
+  virtual operation vintf;
+  mailbox mail;
+  mailbox mbox;
+  agent agen;
+  scoreboard score;
+
+  function new(virtual operation vintf, mailbox mail, mailbox mbox);
     this.mail = mail;
+    this.mbox = mbox;
+    this.vintf = vintf;
   endfunction
 
-  task scor;
-    forever #10 begin
-      mail.get(pkt);
-      if (pkt.count < 10)
-        $display("\n\t\t---------TARGET PASSED------");
-      else
-        $display("\n\t\t---------TARGET FAILED------");
-    end
+  task memory;
+    agen = new(vintf, mail, mbox);
+    score = new(mbox);
+    agen.memory();
+  endtask
+
+  task run;
+    fork
+      agen.run();
+      score.scor();
+    join
   endtask
 endclass
